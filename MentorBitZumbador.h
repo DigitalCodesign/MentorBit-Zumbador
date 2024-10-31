@@ -33,17 +33,20 @@
 #ifndef MentorBitZumbador_h
 #define MentorBitZumbador_h
 
-class MentorBitZumbador
+#include <MentorPort.h>
+
+class MentorBitZumbador : public MentorPort
 {
 
     public:
 
         MentorBitZumbador(uint8_t zumbador_pin);
         void emitirTono(uint32_t tone_value);
+        void configPort(const Port& port) override;
 
     private: 
 
-        uint8_t _zumbador_pin;
+        Port _port;
 };
 
  

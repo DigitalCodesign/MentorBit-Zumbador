@@ -33,10 +33,19 @@
 #include <arduino.h>
 #include <MentorBitZumbador.h>
 
-MentorBitZumbador::MentorBitZumbador(uint8_t zumbador_pin){
-    _zumbador_pin = zumbador_pin;
+MentorBitZumbador::MentorBitZumbador(uint8_t zumbador_pin = 0){
+    _port.gpios[1] = zumbador_pin;
 }
 
 void MentorBitZumbador::emitirTono(uint32_t tone_value){
-    tone(_zumbador_pin, tone_value);
+    tone(_port.gpios[1], tone_value);
+}
+
+void MentorBitZumbador::configPort(const Port& port) {
+
+    _port.type = port.type;
+    _port.location = port.location;
+    _port.gpios[0] = port.gpios[0];
+    _port.gpios[1] = port.gpios[1];
+
 }
