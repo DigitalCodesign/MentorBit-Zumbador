@@ -40,7 +40,7 @@ class MentorBitZumbador : public MentorPort
 
     public:
 
-        MentorBitZumbador(uint8_t zumbador_pin);
+        MentorBitZumbador(uint8_t zumbador_pin = 0);
         void emitirTono(uint32_t tone_value);
         void configPort(const Port& port) override;
 
